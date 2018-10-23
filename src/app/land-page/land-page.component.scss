@@ -1,0 +1,71 @@
+@import '../../sass/_variables.scss';
+@import '../../sass/_mixin.scss';
+@import '../../sass/_components.scss';
+
+body {
+    font-family: $main-font-family;
+    background-color:$main-color;
+    margin: 0;
+    color:$white-color;
+  }
+
+  .showcase{
+    overflow-y: hidden;
+    position: relative;
+    background: url(../../img/overflow3.jpg) no-repeat center/cover ;
+    width:$widthFull;
+    height:$heightFull;
+     .overlay{
+         @include overlay;
+         background-color: rgba(black,0.3);
+         height:100vh;
+     }
+    .tunes h1{
+    font-size: 4rem;
+    margin-top: $heightFull/4;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    }
+    .tunes h2{
+        font-size: 2rem;
+        padding-bottom: 10px;
+    }
+    .tunes p{
+        line-height: 1.9;
+        font-size:20px;
+        @include mobileDevice {
+            display:none;
+        }
+        @include iPadDevice{
+            display:none;
+        }
+    }
+  }
+  .service-section{
+      background-color: $white-color;
+      color:$main-color;
+      padding: 80px 20px;;
+
+  }
+
+//   .axure{
+//     margin:0 auto;
+//     position:relative;
+    
+//     background: url(../img/back.jpg) ;
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     -o-background-size: cover;
+//     background-size: cover;
+//     height:55vh;
+//     color:#fff;
+// }
+// .axure .overlay{
+//     padding:50px ;
+//     position: absolute;
+//     top:0;
+//     left:0;
+//     right:0;
+//     bottom: 0;
+//     background-color: rgba(0,0,0,0.7);
+// }

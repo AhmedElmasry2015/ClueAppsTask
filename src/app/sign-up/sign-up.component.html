@@ -1,0 +1,131 @@
+<div class="signup">
+  <div class="overlay">
+    <div class="container">
+  <h2 class="text-center">sign Up</h2>
+  <form #loginForm="ngForm">
+      <div class="form-row">
+         <div class="form-group col-md-6">
+            <label for="firstName">First Name</label>
+            <input type="text" 
+            ngModel  
+            #firstName="ngModel"  
+            name="firstName"
+            [(ngModel)]="customer.firstName" 
+            class="form-control" 
+             id="firstName" 
+             placeholder="First Name ..."
+             required>
+
+            <div class="alert alert-danger" *ngIf="firstName.invalid && firstName.touched">
+             <div *ngIf="firstName.errors.required">this field is required.</div>
+            </div>
+          </div> 
+      
+          <div class="form-group col-md-6">
+            <label for="lastName">Last Name</label>
+            <input type="text"
+              ngModel 
+              #lastName="ngModel"
+              [(ngModel)]="customer.lastName"
+              class="form-control" 
+               name="lastName"  
+               id="lastName" 
+               placeholder="last Name ..."
+               required>
+            <div class="alert alert-danger" *ngIf="!lastName.valid && lastName.touched">
+             <div *ngIf="lastName.errors.required">this field is required.</div>
+            </div>
+          </div>
+      </div>  
+
+      <div class="form-group">
+          <label for="email">Email</label>
+          <input
+          ngModel 
+          #email="ngModel"
+          [(ngModel)]="customer.email"
+          (ngModelChange)="checkEmailValidate(customer.email)"
+          name="email"
+          type="email" 
+          class="form-control" 
+          id="email"
+           placeholder="Enter Your Email"
+           pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+           required>
+           <div class="alert alert-danger" *ngIf="!email.valid && email.touched">
+              <div *ngIf="email.errors.required">this field is required.</div>
+              <div *ngIf="email.errors.pattern">this email is wrong formatted.</div> 
+            </div>
+            <div class="alert alert-danger" *ngIf="!emailChecked && email.touched">this email is already Token</div>
+        </div>
+        
+      <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input 
+        ngModel 
+        #address="ngModel"
+        [(ngModel)]="customer.address"
+        name="address"
+        type="text" 
+        class="form-control" 
+        id="address"
+         placeholder="1234 Main St"
+         required>
+         <div class="alert alert-danger" *ngIf="!address.valid && address.touched">
+            <div *ngIf="lastName.errors.required">this field is required.</div>
+        </div>
+         </div>
+      
+
+      <div class="form-group">
+          <label for="mobileNumber">Mobile Number</label>
+          <input 
+          ngModel
+          #mobileNumber="ngModel"
+          name="mobileNumber"
+          [(ngModel)]="customer.mobileNumber"
+          type="text" 
+          class="form-control" 
+          id="mobileNumber" 
+          placeholder="Enter Your Mobile Number"
+          required
+          pattern="[0-9]+">
+          <div class="alert alert-danger" *ngIf="!mobileNumber.valid && mobileNumber.touched">
+              <div *ngIf="mobileNumber.errors.required">this field is required.</div>
+              <div *ngIf="mobileNumber.errors.pattern">need a correct number.</div>
+          </div>
+        </div>
+       
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="country">Country</label>
+         
+           <select id="inputState"
+            class="form-control" 
+            ngModel
+          #countryName="ngModel"
+           [(ngModel)]="customer.country" 
+           (ngModelChange)="onDropdownChange($event)"   
+           name="countryName"
+           required>
+               <option selected>Choose...</option> 
+              <!-- [(ngModel)]="country.id" (ngModelChange)="getCountryId(country.id)" --> 
+              <option *ngFor="let country of countries ; let i = index" [ngValue]="i" >{{country.country}}</option>
+            </select> 
+            <div class="alert alert-danger" *ngIf="!countryName.valid && countryName.touched">
+              <div *ngIf="countryName.errors.required">this field is required.</div>
+          </div>
+          </div>
+        <div class="form-group col-md-6">
+          <label for="inputState">City</label>
+                    <select id="inputState2" class="form-control" [(ngModel)]="customer.city" name="cityName">
+            <option selected>Choose...</option>
+            <option *ngFor="let city of selectedCity"  name="city">{{city}}</option>
+          </select> 
+        </div>
+      </div>
+      <button type="submit" (click)="addClient(customer)" [disabled]="loginForm.form.invalid || !emailChecked" class="btn btn-primary">Sign Up</button>
+    </form>
+  </div>
+</div>
+</div>

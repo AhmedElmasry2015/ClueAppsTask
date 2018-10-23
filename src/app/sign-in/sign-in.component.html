@@ -1,0 +1,49 @@
+<div class="signin">
+    <div class="overlay">
+      <div class="custom-container">
+      <h2 class="text-center">sign In</h2>
+
+      <!-- (ngModelChange)="checkEmailValidate(customer.email)"  -->
+      <form #loginForm="ngForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+            ngModel 
+            #email="ngModel"
+            [(ngModel)]="customer.email"
+            name="email"
+            type="email" 
+            class="form-control" 
+            id="email"
+            placeholder="Enter Your Email"
+            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            required>
+            <div class="alert alert-danger" *ngIf="!email.valid && email.touched">
+                <div *ngIf="email.errors.required">this field is required.</div>
+                <div *ngIf="email.errors.pattern">this email is wrong formatted.</div> 
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="mobileNumber">Mobile Number</label>
+              <input 
+              ngModel
+              #mobileNumber="ngModel"
+              name="mobileNumber"
+              [(ngModel)]="customer.mobileNumber"
+              type="text" 
+              class="form-control" 
+              id="mobileNumber" 
+              placeholder="Enter Your Mobile Number"
+              required
+              pattern="[0-9]+">
+              <div class="alert alert-danger" *ngIf="!mobileNumber.valid && mobileNumber.touched">
+                  <div *ngIf="mobileNumber.errors.required">this field is required.</div>
+                  <div *ngIf="mobileNumber.errors.pattern">need a correct number.</div>
+              </div>
+          </div>
+          <button type="submit" (click)="login(customer)" [disabled]="loginForm.form.invalid"class="login-component">Sign In</button>
+          <button type="reset" class="login-component">reset</button>
+      </form>
+    </div>
+    </div>
+</div>

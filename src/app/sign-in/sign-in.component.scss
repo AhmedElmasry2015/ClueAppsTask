@@ -1,0 +1,22 @@
+@import '../../sass/_variables.scss';
+@import '../../sass/_mixin.scss';
+@import '../../sass/_components.scss';
+.signin{
+    position: relative;
+    background: url(../../img/signup.jpg) no-repeat center/cover ;
+    background-color: $main-color;
+    height:$heightFull;
+
+    .overlay{
+        @include overlay;
+            background-color: rgba(black,.9);
+            height:100vh;
+            .custom-container{
+                padding:10% 30%;
+            }
+    }
+    h2{
+        color:$white-color;
+        padding:10px 0px;
+    }
+}

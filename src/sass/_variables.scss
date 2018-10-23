@@ -1,0 +1,36 @@
+/* main fonts Family */
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+$main-font-family: 'PT Sans', sans-serif;
+/* End Main Fonts Family*/
+/*************************************************************************************************/
+
+/* Devices Pixels*/
+$startMobileDevice: 0px;
+$endMobileDevice: 767px;
+$stariPadDevice: 768px;
+$endIpadDEvice: 991px;
+$startTabletDevice: 992px;
+$endTabletDevice: 1199px;
+/*End Devices Pixels*/
+
+/* button colors */
+$signin:#FF5E00;
+/* end button colors */
+
+
+/* Start Used Colors*/
+$main-color: #252529;
+$secondary-color:#FF5E00;
+$white-color:#fff;
+$black-color:black;
+$background-color-product-list:#eee;
+/*End Used Color*/
+
+
+/* width and Height different Property*/
+$widthFull:100%;
+$heightFull:100vh;
+
+/*End of width and height different Properties*/
+
+

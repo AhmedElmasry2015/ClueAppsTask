@@ -1,0 +1,21 @@
+@import '../../sass/_variables.scss';
+@import '../../sass/_mixin.scss';
+@import '../../sass/_components.scss';
+.main-slider{
+    background-color: $main-color;
+    height:100%;
+    padding-top: 20vh;
+}
+.product-slider{
+    background-color:white;
+    width:150px;
+    height:150px;
+}
+.slider-background{
+    background-color:$background-color-product-list; 
+    margin-right:5px;
+}
+// position: fixed;
+// top: 28vh;
+// /* left: 0vh; */
+// right: 14vh;

@@ -1,0 +1,43 @@
+
+/* Mixins That Related To Different Devices */
+@mixin mobileDevice{
+    @media (min-width:$startMobileDevice) and (max-width:$endMobileDevice){
+        @content;
+    }
+}
+@mixin iPadDevice{
+    @media (min-width:$stariPadDevice) and (max-width:$endIpadDEvice){
+        @content;
+    }
+}
+@mixin TabletDevice{
+    @media (min-width:$startTabletDevice) and (max-width:$endTabletDevice){
+        @content;
+    }
+}
+@mixin desktopDevice{
+    @media (min-width:1200px){
+        @content;
+    }
+}
+
+/* End Mixins That Related To Different Devices */
+
+/* Mixin to Overlay Property*/
+@mixin overlay{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+}
+/*End Overlay Property Mixin*/
+
+/* Mixin that will be used to hover */ 
+@mixin butt-hover{
+    background-color:$secondary-color;
+    transition-timing-function: ease-out;
+    transition-timing-function: ease-in;
+    transition: 1s;
+    text-decoration: none;
+}
+/* end of hover Mixin */
